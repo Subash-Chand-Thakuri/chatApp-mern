@@ -7,8 +7,9 @@ const accessChat = asyncHandler(async (req:Request, res: Response): Promise<void
     const { userId } = req.body;
 
     if(!userId){
-        console.log("UserId param is not sent with request");
-        res.sendStatus(400)
+        // console.log("UserId param is not sent with request");
+        res.status(400).send({ message: "UserId param is not sent with the request" });
+        return;
     }
 
     var isChat = await Chat.find({

@@ -38,8 +38,8 @@ function MyChats() {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo") || ""));
     fetchChats();
-    console.log("chats: ", chats);
-    console.log("selectedChat: ", selectedChat);
+    // console.log("chats: ", chats);
+    // console.log("selectedChat: ", selectedChat);
   }, []);
 
   return (

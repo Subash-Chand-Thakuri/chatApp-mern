@@ -1,6 +1,7 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react";
+import { Button, FormControl, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { ChatState, User } from "../../../Context/ContextProvider";
+import axios from "axios";
 
 function GroupChatModal({ children }: { children: React.ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -13,6 +14,41 @@ function GroupChatModal({ children }: { children: React.ReactNode }) {
   const toast = useToast();
 
   const {user, chats, setChats} = ChatState();
+
+  const handleSearch = async (query: string) => {
+    setSearch(query);
+    if(!query){
+      return;
+    }
+
+    try {
+      setLoading(true)
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user?.token}`
+        },
+      };
+
+      const {data} = await axios.get(`/api/user?search=${search}`, config);
+      console.log(data)
+      setLoading(false);
+      setSearchResult(data);
+
+    } catch (error) {
+      toast({
+        title: "Error occured",
+        description: "Failed to load the search results",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom-left",
+      })
+    }
+  };
+
+
+  const handleSubmit = () => {}
 
   return (
     <>
@@ -28,13 +64,24 @@ function GroupChatModal({ children }: { children: React.ReactNode }) {
             justifyContent={'center'}
           >Create Group Chat</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            
+          <ModalBody display={'flex'} flexDir={'column'} alignItems={'center'}>
+            <FormControl>
+              <Input placeholder="Chat Name" mb={3}
+                onChange={(e) => setGroupChatName(e.target.value)}
+              />
+            </FormControl>
+            <FormControl>
+              <Input placeholder="Add Users eg: John,Sur, Bhur" mb={1}
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+              {/* selected users */}
+              {/* render searched users */}
+            </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+              Create Chat
             </Button>
             <Button variant="ghost">Secondary Action</Button>
           </ModalFooter>
