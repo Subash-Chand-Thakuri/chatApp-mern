@@ -9,10 +9,6 @@ export interface User {
   _id:string;
 }
 
-export interface Chatdata {
-  _id: string;
-  content: string;
-}
 
 export interface Chats{
   _id: string;
@@ -22,6 +18,11 @@ export interface Chats{
   updatedAt: Date;
   content: string;
   users: User[];
+}4
+
+export interface Chatdata extends Chats{
+  _id: string;
+  content: string;
 }
 
 interface IChatContext {

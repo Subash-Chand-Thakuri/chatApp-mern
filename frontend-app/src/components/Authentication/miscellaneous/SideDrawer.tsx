@@ -19,13 +19,13 @@ import {
   useToast,
   Spinner,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { ChatState } from "../../../Context/ContextProvider";
 import ProfileModal from "./ProfileModal";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import ChatLoading from "../ChatLoading";
+import ChatLoading from "../../ChatLoading";
 import UserListItem from "../../UserAvatar/UserListItem";
 
 

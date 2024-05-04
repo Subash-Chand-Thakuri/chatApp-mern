@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { ChatState, User } from "../../Context/ContextProvider";
+import { ChatState, User } from "../Context/ContextProvider";
 import { Text, Box, Button, Stack, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { AddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
-import { getSender } from "../../config/ChatLogics";
-import GroupChatModal from "./miscellaneous/GroupChatModal";
+import { getSender } from "../config/ChatLogics";
+import GroupChatModal from "./Authentication/miscellaneous/GroupChatModal";
 
-function MyChats() {
+function MyChats({fetchAgain}) {
   const [loggedUser, setLoggedUser] = useState<User | null>(null);
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const toast = useToast();
@@ -40,7 +40,7 @@ function MyChats() {
     fetchChats();
     // console.log("chats: ", chats);
     // console.log("selectedChat: ", selectedChat);
-  }, []);
+  }, [fetchAgain]);
 
   return (
     <Box

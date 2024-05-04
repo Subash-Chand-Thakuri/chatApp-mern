@@ -1,5 +1,4 @@
-import { Box, SkeletonCircle, SkeletonText, Stack } from "@chakra-ui/react";
-import React from "react";
+import { Box, SkeletonText, Stack } from "@chakra-ui/react";
 
 function ChatLoading() {
   return (

@@ -10,14 +10,14 @@ interface IUser {
   pic: string;
 }
 
-interface IMessage {
+export interface IMessage {
   _id: ObjectId;
   content: string;
   sender: IUser;
   // Other properties...
 }
 
-interface IChat extends Document {
+export interface IChat extends Document {
   chatName?: string;
   isGroupChat: boolean;
   users: IUser[];
