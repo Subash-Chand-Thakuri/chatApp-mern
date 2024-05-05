@@ -13,7 +13,7 @@ const accessChat = asyncHandler(async (req:Request, res: Response): Promise<void
         return;
     }
 
-    var isChat = await Chat.find({
+    let isChat = await Chat.find({
         isGroupChat: false,
         $and: [
             {users:{$elemMatch: {$eq: req.user._id}}},
