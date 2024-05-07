@@ -1,24 +1,98 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChatState } from '../Context/ContextProvider'
-import { Box, FormControl, Icon, Input, Spinner, Text } from '@chakra-ui/react';
+import { Box, FormControl, Icon, Input, Spinner, Text, useToast } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { getSender, getSenderFull } from '../config/ChatLogics';
 import ProfileModal from './Authentication/miscellaneous/ProfileModal';
 import UpdateGroupChatModal from './Authentication/UpdateGroupChatModal';
+import axios from 'axios';
+import './styles.css';
+import ScrollableChat from "./ScrollableChat"
 
 function SingleChat({fetchAgain,setFetchAgain}) {
-    const [messages , setMessags] = useState([]);
+    const [messages , setMessages] = useState<string[] | "">([]);
     const [loading , setLoading] = useState(false);
-    const [newMessages , setNewMessags] = useState()
+    const [newMessage , setNewMessag] = useState()
+    const toast = useToast();
 
     const {user, selectedChat, setSelectedChat} = ChatState();
 
-    const sendMessage = () => {
+    const fetchMessages = async() => {
+        if(!selectedChat) return ;
 
+        try {
+            const config = {
+                    headers: {
+                        Authorization: `Bearer ${user?.token}`,
+                    },
+                };
+
+                setLoading(true);
+
+                const {data} = await axios.get(`/api/message/${selectedChat._id}`,
+                    config
+                );
+                console.log("Messages: ",messages)
+
+                setMessages(data);
+                setLoading(false);
+
+        } catch (error) {
+            toast({
+                title: "Error occured!",
+                description: "Failed to send the message",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: 'bottom'
+            });
+        }
     }
 
-    const typingHandler = () => {
-        
+    useEffect(()=>{
+        fetchMessages();
+    },[selectedChat])
+
+    const sendMessage = async(e) => {
+        if(e.key === "Enter" && newMessage ){
+            try {
+                const config = {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${user?.token}`,
+                    },
+                };
+
+                const {data} = await axios.post(`/api/message`,{
+                   content: newMessage,
+                    chatId: selectedChat?._id,
+                },
+                config
+            );
+
+            console.log(data)
+
+            setNewMessag("");
+            setMessages([...messages,data])
+
+
+            } catch (error) {
+                toast({
+                    title: "Error occured!",
+                    description: "Failed to send the message",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'bottom'
+                });
+            }
+        }
+    }
+
+    const typingHandler = (e) => {
+            setNewMessag(e.target.value);
+
+            // typing indicator logic
     }
 
   return (
@@ -54,6 +128,7 @@ function SingleChat({fetchAgain,setFetchAgain}) {
                                         <UpdateGroupChatModal
                                             fetchAgain={fetchAgain}
                                             setFetchAgain={setFetchAgain}
+                                            fetchMessages={fetchMessages}
                                         />
                                     </>
                             )
@@ -79,9 +154,13 @@ function SingleChat({fetchAgain,setFetchAgain}) {
                                 h={20}
                                 alignSelf={'center'}
                                 margin={'auto'}
+                                color='black'
+                             
                             />
                         ):(
-                            <></>
+                            <div className='messages'>
+                                <ScrollableChat messages={messages} />
+                            </div>
                         )
                     };
 
@@ -91,6 +170,10 @@ function SingleChat({fetchAgain,setFetchAgain}) {
                             bg={'#e0e0e0'}
                             placeholder='Enter a message...'
                             onChange={typingHandler}
+                            value={newMessage}
+                            border={'1px'}
+                            borderColor={'black'}
+                            color={'black'}
                         />
                     </FormControl>
                 </Box>
