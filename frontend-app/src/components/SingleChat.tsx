@@ -8,11 +8,19 @@ import UpdateGroupChatModal from './Authentication/UpdateGroupChatModal';
 import axios from 'axios';
 import './styles.css';
 import ScrollableChat from "./ScrollableChat"
+import io, { Socket } from "socket.io-client"
+import { DefaultEventsMap } from '@socket.io/component-emitter';
+
+const ENDPOINT = "http://localhost:3000";
+var socket, selectedChatCompare;
+
+
 
 function SingleChat({fetchAgain,setFetchAgain}) {
     const [messages , setMessages] = useState<string[] | "">([]);
     const [loading , setLoading] = useState(false);
-    const [newMessage , setNewMessag] = useState()
+    const [newMessage , setNewMessage] = useState()
+    const [socketConnected, setSocketConnected] = useState<boolean>(false)
     const toast = useToast();
 
     const {user, selectedChat, setSelectedChat} = ChatState();
@@ -36,6 +44,9 @@ function SingleChat({fetchAgain,setFetchAgain}) {
 
                 setMessages(data);
                 setLoading(false);
+                console.log(selectedChat)
+
+                socket.emit("join-chat", selectedChat._id)
 
         } catch (error) {
             toast({
@@ -51,7 +62,21 @@ function SingleChat({fetchAgain,setFetchAgain}) {
 
     useEffect(()=>{
         fetchMessages();
+
+        selectedChatCompare = selectedChat; 
     },[selectedChat])
+
+    useEffect(() => {
+        socket = io(ENDPOINT);
+        socket.emit('setup', user);
+        socket.on('connect', () => {
+            setSocketConnected(true);
+            console.log("User connected to the server");
+        });
+    
+                
+    }, []);
+    
 
     const sendMessage = async(e) => {
         if(e.key === "Enter" && newMessage ){
