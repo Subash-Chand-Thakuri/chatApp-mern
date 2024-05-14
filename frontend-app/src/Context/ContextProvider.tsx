@@ -48,6 +48,7 @@ const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   const [user, setUser] = useState<User | null>(null);
   const [selectedChat, setSelectedChat] = useState<Chatdata | null>(null);
   const [chats, setChats] = useState<Chats[] | []>([]);
+  const [notification, setNotification] = useState([])
 
   const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     }
   }, [navigate]);
 
-  return <ChatContext.Provider value={{ user, setUser, selectedChat, setSelectedChat, chats, setChats }}>{children}</ChatContext.Provider>;
+  return <ChatContext.Provider value={{ user, setUser, selectedChat, setSelectedChat, chats, setChats, notification, setNotification }}>{children}</ChatContext.Provider>;
 };
 
 export const ChatState = () => {

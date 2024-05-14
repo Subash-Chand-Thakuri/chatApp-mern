@@ -27,7 +27,7 @@ function SingleChat({fetchAgain,setFetchAgain}) {
     const [isTyping, setIsTyping] = useState<boolean>(false);
 
     const toast = useToast();
-    const {user, selectedChat, setSelectedChat} = ChatState();
+    const {user, selectedChat, setSelectedChat, notification, setNotification} = ChatState();
 
     const defaultOptions = {
         loop: true,
@@ -57,7 +57,7 @@ function SingleChat({fetchAgain,setFetchAgain}) {
 
                 setMessages(data);
                 setLoading(false);
-                console.log(selectedChat)
+                // console.log(selectedChat)
 
                 socket.emit("join-chat", selectedChat._id)
 
@@ -103,7 +103,10 @@ function SingleChat({fetchAgain,setFetchAgain}) {
     useEffect(() => {
         socket.on("message received", (newMessageReceived) => {
             if(!selectedChatCompare! || selectedChat?._id !== newMessageReceived.chat._id ){
-                //give notification
+                if(!notification.includes(newMessageReceived)){
+                    setNotification([newMessageReceived, ...notification]);
+                    setFetchAgain(!fetchAgain)
+                }
             }else{
                 setMessages([...messages, newMessageReceived])
             }
