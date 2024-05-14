@@ -8,7 +8,7 @@ const accessChat = asyncHandler(async (req, res) => {
         res.status(400).send({ message: "UserId param is not sent with the request" });
         return;
     }
-    let isChat = await Chat.find({
+    var isChat = await Chat.find({
         isGroupChat: false,
         $and: [
             { users: { $elemMatch: { $eq: req.user._id } } },

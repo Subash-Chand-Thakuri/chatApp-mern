@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 // TypeScript interfaces
-interface IUser {
+export interface IUser {
   _id: ObjectId;
   name: string;
   email: string;

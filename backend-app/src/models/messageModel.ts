@@ -12,7 +12,7 @@ interface IChat {
   // Other chat properties...
 }
 
-interface IMessage extends Document {
+export interface IMessage extends Document {
   sender: IUser;
   content: string;
   chat: IChat;
