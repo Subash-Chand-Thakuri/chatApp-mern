@@ -5,6 +5,7 @@ import { ChatState } from '../Context/ContextProvider'
 import { Tooltip, Avatar } from '@chakra-ui/react'
 
 
+
 function ScrollableChat({messages}) {
     const {user} = ChatState();
   return (
@@ -53,4 +54,4 @@ function ScrollableChat({messages}) {
   )
 }
 
-export default ScrollableChat
+export default ScrollableChat;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { ChatState, User } from "../Context/ContextProvider";
 import { Text, Box, Button, Stack, useToast } from "@chakra-ui/react";
 import axios from "axios";
@@ -7,7 +7,12 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../config/ChatLogics";
 import GroupChatModal from "./Authentication/miscellaneous/GroupChatModal";
 
-function MyChats({fetchAgain}) {
+interface MyChatsProps {
+  fetchAgain: boolean; 
+}
+
+
+function MyChats({ fetchAgain }: MyChatsProps)  {
   const [loggedUser, setLoggedUser] = useState<User | null>(null);
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const toast = useToast();

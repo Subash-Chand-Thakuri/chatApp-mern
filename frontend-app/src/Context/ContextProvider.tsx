@@ -18,11 +18,20 @@ export interface Chats{
   updatedAt: Date;
   content: string;
   users: User[];
-}4
+  groupAdmin: User;
+}
 
 export interface Chatdata extends Chats{
   _id: string;
   content: string;
+}
+
+export interface Notification {
+  _id: string;
+  chat: Chats;
+  createdAt: Date;
+  isRead: boolean;
+  
 }
 
 interface IChatContext {
@@ -32,6 +41,8 @@ interface IChatContext {
   setSelectedChat: React.Dispatch<React.SetStateAction<Chatdata | null>>;
   chats : Chats[] | null;
   setChats: React.Dispatch<React.SetStateAction<Chats[] | []>>;
+  notification: Notification[];
+  setNotification: React.Dispatch<React.SetStateAction<Notification[]>>;
 }
 
 const ChatContext = createContext<IChatContext>({
@@ -41,6 +52,8 @@ const ChatContext = createContext<IChatContext>({
   setSelectedChat: () => {},
   chats : null,
   setChats: () => {},
+  notification: [],
+  setNotification: () => {}
 
 });
 
@@ -48,7 +61,7 @@ const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   const [user, setUser] = useState<User | null>(null);
   const [selectedChat, setSelectedChat] = useState<Chatdata | null>(null);
   const [chats, setChats] = useState<Chats[] | []>([]);
-  const [notification, setNotification] = useState([])
+  const [notification, setNotification] = useState<Notification[]>([]);
 
   const navigate = useNavigate();
 

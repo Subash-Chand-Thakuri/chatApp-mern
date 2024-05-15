@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react'
-import { ChatState } from '../Context/ContextProvider'
+import { ChatState, User } from '../Context/ContextProvider'
 import { Box, FormControl, Icon, Input, Spinner, Text, useToast } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { getSender, getSenderFull } from '../config/ChatLogics';
@@ -9,16 +9,20 @@ import axios from 'axios';
 import './styles.css';
 import ScrollableChat from "./ScrollableChat"
 import io, { Socket } from "socket.io-client"
-import { DefaultEventsMap } from '@socket.io/component-emitter';
+// import { DefaultEventsMap } from '@socket.io/component-emitter';
 import Lottie from 'react-lottie'
 import animationData from "../assets/animations/typing.json"
 
 const ENDPOINT = "http://localhost:3000";
 let socket: Socket, selectedChatCompare;
 
-
-
-function SingleChat({fetchAgain,setFetchAgain}) {
+interface ChatBoxProps {
+    fetchAgain: boolean;
+    setFetchAgain: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+  
+  
+  function SingleChat({ fetchAgain, setFetchAgain }: ChatBoxProps){
     const [messages , setMessages] = useState<string[] | "">([]);
     const [loading , setLoading] = useState(false);
     const [newMessage , setNewMessage] = useState<string>("")
@@ -161,11 +165,11 @@ function SingleChat({fetchAgain,setFetchAgain}) {
                socket.emit("typing", selectedChat?._id)
             }
 
-            let lastTypingTime = new Date().getTime();
-            let timerLength = 3000;
+            const lastTypingTime = new Date().getTime();
+            const timerLength = 3000;
             setTimeout(() => {
-                let timeNow = new Date().getTime();
-                let timeDiff = timeNow - lastTypingTime;
+                const timeNow = new Date().getTime();
+                const timeDiff = timeNow - lastTypingTime;
 
                 if(timeDiff >= timerLength && typing){
                     socket.emit("stop typing", selectedChat?._id);
@@ -200,7 +204,7 @@ function SingleChat({fetchAgain,setFetchAgain}) {
                             !selectedChat.isGroupChat ? (
                                 <>
                                 {getSender(user!,selectedChat.users)}
-                                <ProfileModal user={getSenderFull(user!,selectedChat.users)} />
+                                <ProfileModal user={getSenderFull(user!,selectedChat.users) as User } />
                                 </>
                             ):(
                                     <>

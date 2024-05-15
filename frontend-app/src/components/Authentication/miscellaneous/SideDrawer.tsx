@@ -204,7 +204,7 @@ function SideDrawer() {
                   key={notif?._id}
                   onClick={() => {
                     setSelectedChat(notif.chat);
-                    setNotification.filter((n) => n !== notif);
+                    setNotification((prev) => prev.filter((n) => n !== notif));
                   }}
                 >
                   {notif.chat.isGroupChat
@@ -224,7 +224,7 @@ function SideDrawer() {
               />
             </MenuButton>
             <MenuList color="black">
-              <ProfileModal user={user}>
+              <ProfileModal user={user ?? undefined}>
                 <MenuItem>Profile</MenuItem>
               </ProfileModal>
               <MenuDivider></MenuDivider>
