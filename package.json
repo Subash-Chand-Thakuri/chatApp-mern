@@ -2,7 +2,7 @@
 "scripts": {
   "start": "node backend-app/dist/server.js",
   "server": "nodemon backend-app/dist/server.js",
-  "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npm run build --prefix frontend-app"
+  "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npm run build --prefix frontend-app vite build"
 },
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
