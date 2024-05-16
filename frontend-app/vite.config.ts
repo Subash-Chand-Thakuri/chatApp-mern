@@ -10,6 +10,12 @@ export default defineConfig({
     }
   },
   build: {
-    sourcemap: true, // Enable sourcemaps
+    sourcemap: true, 
+    outDir: 'dist',
+    rollupOptions: {
+      input: 'index.html'
+    }
+
+    
   },
 });
