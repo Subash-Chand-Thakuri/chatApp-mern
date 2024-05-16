@@ -1,6 +1,19 @@
-{
+{  "main": "server.js",
+"scripts": {
+  "start": "node backend-app/dist/server.js",
+  "server": "nodemon backend-app/dist/server.js",
+  "build": "npm install && npm install --prefix frontend-app && npm run build --prefix frontend-app"
+},
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2"
   }
 }

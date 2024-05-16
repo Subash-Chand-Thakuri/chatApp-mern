@@ -1,7 +1,14 @@
 import { CloseIcon } from '@chakra-ui/icons'
 import { Box } from '@chakra-ui/react'
+import { User } from '../../Context/ContextProvider';
+import React from 'react';
 
-function UserBadgeItem({user,handleFunction}) {
+interface UserBadgeType{
+  user: User;
+  handleFunction: () => void;
+}
+
+function UserBadgeItem({user,handleFunction}:  UserBadgeType) {
   return (
     <Box
         px={2}

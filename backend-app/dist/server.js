@@ -9,6 +9,7 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import chatRoutes from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import { Server } from "socket.io";
+import path from "path";
 const port = process.env.PORT || 3000;
 dotenv.config();
 connectDB();
@@ -21,6 +22,20 @@ app.get("/", (req, res) => {
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
+// ----------------Deployment--------------------
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname1, '/frontend-app/dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname1, "frontend-app", "dist", "index.html"));
+    });
+}
+else {
+    app.get("/", (req, res) => {
+        res.send("API is Running Successfully");
+    });
+}
+// ----------------Deployment--------------------
 app.use(notFound);
 app.use(errorHandler);
 const server = app.listen(port, () => {
