@@ -1,9 +1,9 @@
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import User from '../models/UserModel.js';
 import asyncHandler from 'express-async-handler';
 import { NextFunction,Request, Response } from 'express';
 
-interface MyJwtPayload extends JwtPayload {
+interface MyJwtPayload {
     id: string;
   }
 
