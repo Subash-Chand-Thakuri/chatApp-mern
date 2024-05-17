@@ -2,7 +2,7 @@ import mongoose, { Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 // TypeScript interface for the User document
-interface IUser extends Document {
+export interface IUser extends Document {
   name: string;
   email: string;
   password: string;

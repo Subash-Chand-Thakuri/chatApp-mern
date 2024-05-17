@@ -5,3 +5,5 @@ declare module 'express-serve-static-core' {
     user?: any; // Use a more specific type if possible
   }
 }
+
+declare module 'express';

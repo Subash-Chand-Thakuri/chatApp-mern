@@ -2,7 +2,9 @@ import asyncHandler from "express-async-handler";
 import Chat, { IChat, IMessage } from "../models/chatModel.js"
 import { Request, Response } from "express";
 import User from "../models/UserModel.js";
+import mongoose,{ Document, PopulateOptions } from 'mongoose';
 
+const ObjectId = mongoose.Types.ObjectId;
 
 const accessChat = asyncHandler(async (req:Request, res: Response): Promise<void> => {
     const { userId } = req.body;
@@ -13,18 +15,19 @@ const accessChat = asyncHandler(async (req:Request, res: Response): Promise<void
         return;
     }
 
-    var isChat = await Chat.find({
+    var isChat: (Document<unknown, {}, IChat> & IChat & { _id: typeof ObjectId })[] = await Chat.find({
         isGroupChat: false,
         $and: [
-            {users:{$elemMatch: {$eq: req.user._id}}},
-            {users:{$elemMatch: {$eq: userId}}},
+            { users: { $elemMatch: { $eq: req.user._id } } },
+            { users: { $elemMatch: { $eq: userId } } },
         ]
-    }).populate("users","-password").populate("latestMessage");
+    }).populate("users", "-password").populate("latestMessage");
 
-    isChat = await User.populate(isChat, {
+
+      isChat = await Chat.populate(isChat, {
         path: "latestMessage.sender",
         select: "name pic email"
-    })
+    }) as (Document<unknown, {}, IChat> & IChat & { _id: mongoose.Types.ObjectId })[];
 
     if(isChat.length > 0){
         res.send(isChat[0]);
@@ -44,7 +47,7 @@ const accessChat = asyncHandler(async (req:Request, res: Response): Promise<void
 
             res.status(200).send(FullChat)
 
-        } catch (error) {
+        } catch (error:any) {
             res.status(400);
             throw new Error(error.message);
         }
@@ -74,7 +77,7 @@ const fetchChats = asyncHandler(async (req: Request, res: Response) => {
             .sort({ updatedAt: -1 });
 
         res.status(200).send(chats);
-    } catch (error) {
+    } catch (error:any) {
         res.status(400);
         throw new Error(error.message);
     }
@@ -111,9 +114,9 @@ const createGroupChat = asyncHandler(async (req:Request, res: Response) => {
 
             res.status(200).send(FullGroupChat)
 
-    } catch (error) {
+    } catch (error:any) {
         res.status(400);
-        throw new Error(error.message);
+        throw new Error(error?.message);
     }
 
 });

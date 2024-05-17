@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Chat from "../models/chatModel.js";
-import User from "../models/UserModel.js";
+import mongoose from 'mongoose';
+const ObjectId = mongoose.Types.ObjectId;
 const accessChat = asyncHandler(async (req, res) => {
     const { userId } = req.body;
     if (!userId) {
@@ -15,7 +16,7 @@ const accessChat = asyncHandler(async (req, res) => {
             { users: { $elemMatch: { $eq: userId } } },
         ]
     }).populate("users", "-password").populate("latestMessage");
-    isChat = await User.populate(isChat, {
+    isChat = await Chat.populate(isChat, {
         path: "latestMessage.sender",
         select: "name pic email"
     });
@@ -90,7 +91,7 @@ const createGroupChat = asyncHandler(async (req, res) => {
     }
     catch (error) {
         res.status(400);
-        throw new Error(error.message);
+        throw new Error(error?.message);
     }
 });
 const renameGroup = asyncHandler(async (req, res) => {

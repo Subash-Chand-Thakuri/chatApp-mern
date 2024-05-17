@@ -10,6 +10,9 @@ import chatRoutes from "./routes/chatRoutes.js";
 import messageRoutes from "./routes/messageRoutes.js";
 import { Server } from "socket.io";
 import path from "path";
+import { IUser } from "./models/UserModel.js";
+
+
 
 const port = process.env.PORT || 3000;
 
@@ -85,7 +88,7 @@ io.on("connection", (socket) => {
 
         if(!chat.users) return console.log('chat.users not defined');
 
-        chat.users.forEach(user => {
+        chat.users.forEach((user:IUser) => {
             if(user._id == newMessageReceived.sender._id) return;
 
             socket.in(user._id).emit("message received", newMessageReceived)

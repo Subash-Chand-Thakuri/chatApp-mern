@@ -2,12 +2,12 @@ import mongoose, { Document} from 'mongoose';
 import { ObjectId } from 'mongodb';
 
 // TypeScript interfaces
-interface IUser {
+export interface IUser {
   _id: ObjectId;
   // Other user properties...
 }
 
-interface IChat {
+export interface IChat {
   _id: ObjectId;
   // Other chat properties...
 }

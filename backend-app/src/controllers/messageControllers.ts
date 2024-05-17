@@ -1,9 +1,11 @@
 import asyncHandler from "express-async-handler";
 import { Request, Response } from "express";
-import Message from "../models/messageModel.js";
+import Message, { IMessage } from "../models/messageModel.js";
 import User from "../models/UserModel.js";
-import Chat from "../models/chatModel.js";
-// import  { IMessage,IUser, IChat } from "../models/messageModel.js";
+import Chat, { IChat } from "../models/chatModel.js";
+import mongoose, { Document } from 'mongoose';
+
+const ObjectId = mongoose.Types.ObjectId;
 
 
 const sendMessage = asyncHandler(async(req:Request, res: Response): Promise<void> => {
@@ -23,11 +25,11 @@ const sendMessage = asyncHandler(async(req:Request, res: Response): Promise<void
     try {
         let message = await Message.create(newMessage);
 
-        message = await message.populate("sender","name pic");
+        message = await message.populate("sender", "name pic");
         message = await message.populate("chat");
-        message = await User.populate(message, {
-            path: 'chat.users',
-            select: "name pic email",
+        message = await message.populate({
+            path: "chat.users",
+            select: "name pic email"
         });
 
         await Chat.findByIdAndUpdate(req.body.chatId,{
@@ -36,7 +38,7 @@ const sendMessage = asyncHandler(async(req:Request, res: Response): Promise<void
 
         res.json(message)
         
-    } catch (error) {
+    } catch (error:any) {
         res.status(400);
         throw new Error(error.message)
         
@@ -51,7 +53,7 @@ const allMessage = asyncHandler(async(req:Request, res: Response)=>{
 
             res.json(messages);
 
-    } catch (error) {
+    } catch (error:any) {
         res.status(400);
             throw new Error(error.message);
         
