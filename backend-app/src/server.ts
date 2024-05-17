@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 // import chats from './data/chat.js';
@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   res.send("API is running successfully!");
 });
 
@@ -42,7 +42,7 @@ app.use("/api/message", messageRoutes);
             res.sendFile(path.resolve(__dirname1, "../../frontend-app/dist", "index.html"))
         })
     }else{
-        app.get("/", (req,res) => {
+        app.get("/", (req: Request, res: Response) => {
             res.send("API is Running Successfully");
         })
     }
