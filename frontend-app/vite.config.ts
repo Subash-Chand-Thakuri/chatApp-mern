@@ -9,11 +9,10 @@ export default defineConfig({
       '/api': 'http://localhost:3000'
     }
   },
+  root:'.',
   build: {
     sourcemap: true, 
     outDir: 'dist',
-    rollupOptions: {
-      input: './index.html'
-    }    
+     
   },
 });
