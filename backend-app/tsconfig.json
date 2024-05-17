@@ -3,9 +3,9 @@
     "target": "ES2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     "module": "NodeNext", 
                                     /* Specify what module code is generated. */
-    "rootDir": "src",                                    /* Specify the root folder within your source files. */
+    "rootDir": "./src",                                    /* Specify the root folder within your source files. */
     "moduleResolution": "NodeNext",                      /* Use Node's module resolution algorithm. */
-    "outDir": "dist",                                    /* Specify an output folder for all emitted files. */
+    "outDir": "./dist",                                    /* Specify an output folder for all emitted files. */
     "esModuleInterop": true,                             /* Enables emit interoperability between CommonJS and ES Modules via the 'default' keyword. */
     "forceConsistentCasingInFileNames": true,            /* Disallow inconsistently-cased references to the same file. */
     // "skipLibCheck": true,                                /* Skip type checking of declaration files. */
@@ -15,6 +15,7 @@
   "ts-node": {
     "esm": true
   },
-  "include": ["src/**/*.ts", "env.d.ts"]
+  "include": ["src/**/*.ts", "env.d.ts"],
+  "exclude": ["node_modules"]
 }
 
