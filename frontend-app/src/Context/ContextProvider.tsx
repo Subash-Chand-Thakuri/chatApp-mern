@@ -34,6 +34,14 @@ export interface Notification {
   
 }
 
+export interface MessageType {  
+  _id: string;
+  content: string;
+  sender: User;
+     
+}
+
+
 interface IChatContext {
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;

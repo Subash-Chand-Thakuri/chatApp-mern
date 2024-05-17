@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react'
-import { ChatState, User } from '../Context/ContextProvider'
+import { ChatState, User,MessageType } from '../Context/ContextProvider'
 import { Box, FormControl, Icon, Input, Spinner, Text, useToast } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { getSender, getSenderFull } from '../config/ChatLogics';
@@ -243,7 +243,9 @@ interface ChatBoxProps {
                             />
                         ):(
                             <div className='messages'>
-                                <ScrollableChat messages={messages} />
+                                <ScrollableChat messages={Array.isArray(messages) ? (messages as unknown as MessageType[]).map((message: MessageType) => ({ _id: message._id, content: message.content, sender: message.sender })) : []} />
+
+
                             </div>
                         )
                     };
