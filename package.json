@@ -1,7 +1,8 @@
 {  "main": "server.js",
 "scripts": {
   "start": "node backend-app/dist/server.js",
-  "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npx --prefix frontend-app vite build"
+  "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npm run build --prefix frontend-app && npm run start"
+
 },
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
