@@ -13,7 +13,7 @@ export default defineConfig({
     sourcemap: true, 
     outDir: 'dist',
     rollupOptions: {
-      input: 'index.html'
+      input: './index.html'
     }    
   },
 });
