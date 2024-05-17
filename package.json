@@ -1,1 +1,22 @@
-{"main":"server.js","scripts":{"start":"node backend-app/dist/server.js","build":"npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npm run build --prefix frontend-app && npm run start"},"dependencies":{"@mui/icons-material":"^5.15.17","bcryptjs":"^2.4.3","colors":"^1.4.0","cors":"^2.8.5","dotenv":"^16.4.5","express":"^4.19.2","express-async-handler":"^1.2.0","jsonwebtoken":"^9.0.2","mongoose":"^8.3.2","socket.io":"^4.7.5"},"devDependencies":{"vite":"^5.2.11"}}
+{
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend-app/dist/server.js",
+    "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --legacy-peer-deps && npm run build --prefix frontend-app"
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.15.17",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "vite": "^5.2.11"
+  }
+}
