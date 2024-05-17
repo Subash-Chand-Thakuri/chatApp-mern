@@ -1,5 +1,5 @@
 import 'express-serve-static-core';
-import {IUser} from '../src/models/UserModel';
+import {IUser} from '../src/models/UserModel.js';
 
 
 declare module 'express-serve-static-core' {
