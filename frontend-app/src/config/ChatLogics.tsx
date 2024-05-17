@@ -1,4 +1,4 @@
-import { User } from "../Context/ContextProvider";
+import { MessageType, User } from "../Context/ContextProvider";
 
 export const getSender = (loggedUser: User, users: User[]) => {
   if (!loggedUser || !users || users.length < 2) {
@@ -15,7 +15,7 @@ export const getSenderFull = (loggedUser: User, users: User[] | null) => {
   return users[0]._id === loggedUser._id ? users[1] : users[0];
 }
 
-export const isSameSender = (messages: any[], m: any, i: number, userId:string): boolean => {
+export const isSameSender = (messages: MessageType[], m: MessageType, i: number, userId:string): boolean => {
   return (
     i < messages.length -1 && 
     (messages[i+1].sender._id !== m.sender._id ||
@@ -24,16 +24,16 @@ export const isSameSender = (messages: any[], m: any, i: number, userId:string):
   )
 }
 
-export const isLatestMessage = (messages: any[], i: number, userId: string): boolean => {
+export const isLatestMessage = (messages: MessageType[], i: number, userId: string): boolean => {
   return (
-    i = messages.length -1 && 
+    i === messages.length -1 && 
     (messages[messages.length - 1].sender._id !== userId && 
-      messages[messages.length - 1].sender._id
+      messages[messages.length - 1].sender._id !== undefined
   )
 )
 }
 
-export const isSameSenderMargin = (messages: any[], m: any, i: number, userId: string): number | string => {
+export const isSameSenderMargin = (messages: MessageType[], m: MessageType, i: number, userId: string): number | string => {
   if(
     i < messages.length - 1 &&
     messages[i+1].sender._id === m.sender._id &&
@@ -52,6 +52,6 @@ export const isSameSenderMargin = (messages: any[], m: any, i: number, userId: s
   else return "auto";
 }
 
-export const isSameUser = (messages: any[], m: any, i: number): boolean => {
+export const isSameUser = (messages: MessageType[], m: MessageType, i: number): boolean => {
   return i > 0 && messages[i-1].sender._id === m.sender._id;
 }

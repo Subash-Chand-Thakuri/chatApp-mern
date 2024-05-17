@@ -1,8 +1,8 @@
 {
   "main": "server.js",
   "scripts": {
-    "start": "npm install --legacy-peer-deps && npm install --prefix backend-app  --legacy-peer-deps && npm run build --prefix backend-app && npm run start --prefix backend-app",
-    "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --production=false --legacy-peer-deps && npm run build --prefix frontend-app"
+    "start": "npm run start --prefix backend-app",
+    "build": "npm install --legacy-peer-deps && npm install --prefix frontend-app --production=false --legacy-peer-deps && npm run build --prefix frontend-app && npm install --prefix backend-app  --legacy-peer-deps && npm run build --prefix backend-app "
   },
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
