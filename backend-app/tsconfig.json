@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,            /* Disallow inconsistently-cased references to the same file. */
     // "skipLibCheck": true,                                /* Skip type checking of declaration files. */
     "strict": true,                                      /* Enable all strict type-checking options. */
-    "resolveJsonModule": true ,                           /* Include modules for handling JSON files. */
+    "resolveJsonModule": true , 
+    "skipLibCheck": true,                          /* Include modules for handling JSON files. */
     "typeRoots": ["./node_modules/@types", "./types"]
   },
   "ts-node": {

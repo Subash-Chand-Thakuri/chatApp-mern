@@ -1,4 +1,4 @@
-import jwt, { Secret, JwtPayload } from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import User from '../models/UserModel.js';
 import asyncHandler from 'express-async-handler';
 import { NextFunction,Request, Response } from 'express';
@@ -8,7 +8,7 @@ interface MyJwtPayload extends JwtPayload {
   }
 
 const protect = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    let token;
+    let token: string | undefined;
 
     if(
         req.headers.authorization &&
@@ -17,7 +17,7 @@ const protect = asyncHandler(async (req: Request, res: Response, next: NextFunct
         try {
             token = req.headers.authorization.split(" ")[1];
 
-            const decoded = jwt.verify(token, process.env.JWT_SECRET as Secret) as MyJwtPayload;
+            const decoded = jwt.verify(token, process.env.JWT_SECRET!) as MyJwtPayload;
 
             req.user = await User.findById(decoded.id).select("password");
 
