@@ -12,7 +12,8 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
     "resolveJsonModule": true , 
     "skipLibCheck": true,                          /* Include modules for handling JSON files. */
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "noImplicitAny": false
   },
   "ts-node": {
     "esm": true
