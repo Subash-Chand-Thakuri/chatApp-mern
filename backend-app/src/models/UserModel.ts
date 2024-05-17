@@ -1,5 +1,5 @@
 import mongoose, { Document } from 'mongoose';
-import bcrypt from 'bcryptjs';
+import bcrypt, { compare, genSalt } from 'bcryptjs';
 
 // TypeScript interface for the User document
 export interface IUser extends Document {
