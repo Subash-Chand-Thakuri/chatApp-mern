@@ -6,7 +6,7 @@
     "start:frontend": "npm run start --prefix frontend-app",
     "build": "npm run build:backend && npm run build:frontend",
     "build:backend": "npm install --prefix backend-app --legacy-peer-deps && npm run build --prefix backend-app",
-    "build:frontend": "npm install --prefix frontend-app --omit=dev --production=false --legacy-peer-deps && npm install --prefix frontend-app @vitejs/plugin-react-swc vite-tsconfig-paths && npm run build --prefix frontend-app"
+    "build:frontend": "npm install --prefix frontend-app  --production=false --legacy-peer-deps && npm install --prefix frontend-app @vitejs/plugin-react-swc vite-tsconfig-paths && npm run build --prefix frontend-app"
   },
   "dependencies": {
     "@mui/icons-material": "^5.15.17",
