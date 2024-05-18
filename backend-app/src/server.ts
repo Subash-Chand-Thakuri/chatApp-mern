@@ -14,7 +14,7 @@ import { IUser } from "./models/UserModel.js";
 
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 dotenv.config();
 
@@ -35,17 +35,19 @@ app.use("/api/message", messageRoutes);
 // ----------------Deployment--------------------
 
     const __dirname1 = path.resolve();
-    // if(process.env.NODE_ENV === 'production'){
+    if(process.env.NODE_ENV === 'production'){
         app.use(express.static(path.resolve(__dirname1,'../frontend-app/dist')))
 
         app.get('*', (req,res) => {
-            res.sendFile(path.join(__dirname1, "../frontend-app/dist", "index.html"))
+            res.sendFile(path.resolve(__dirname1, "../frontend-app/dist", "index.html"))
         })
-    // }else{
-    //     app.get("/", (req: Request, res: Response) => {
-    //         res.send("API is Running Successfully");
-    //     })
-    // }
+    }
+
+    else{
+        app.get("/", (req: Request, res: Response) => {
+            res.send("API is Running Successfully");
+        })
+    }
 
 // ----------------Deployment--------------------
 

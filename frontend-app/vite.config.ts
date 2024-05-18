@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     port: 3500,
     proxy: {
-      '/api': 'http://localhost:3600'
+      '/api': 'http://localhost:8080'
     }
   },
   build: {
