@@ -22,7 +22,7 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // app.get("/", (req: Request, res: Response) => {
 //   res.send("API is running successfully!");
@@ -67,12 +67,6 @@ const allowedOrigins = [
     "https://chat-app-mern-lmye-bg623sxja-subash-chand-thakuris-projects.vercel.app/"
 ];
 
-app.use(cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-    credentials: true
-}));
 
 const io = new Server(server, {
     pingTimeout: 60000,
