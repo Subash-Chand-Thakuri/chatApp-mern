@@ -56,7 +56,7 @@ interface ChatBoxProps {
 
                 setLoading(true);
 
-                const {data} = await axios.get(`/api/message/${selectedChat._id}`,
+                const {data} = await axios.get(`${API_URL}/api/message/${selectedChat._id}`,
                     config
                 );
                 console.log("Messages: ",messages)
@@ -131,7 +131,7 @@ interface ChatBoxProps {
                     },
                 };
 
-                const {data} = await axios.post(`/api/message`,{
+                const {data} = await axios.post(`${API_URL}/api/message`,{
                    content: newMessage,
                     chatId: selectedChat?._id,
                 },

@@ -84,7 +84,7 @@ function GroupChatModal({ children }: { children: React.ReactNode }) {
       }
 
       const {data} = await axios.post(
-        `/api/chat/group`,
+        `${API_URL}/api/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map(user=> user._id))
