@@ -34,14 +34,14 @@ app.use("/api/message", messageRoutes);
 
 // ----------------Deployment--------------------
 
-    const __dirname1 = path.resolve();
-    if(process.env.NODE_ENV === 'production'){
-        app.use(express.static(path.resolve(__dirname1,'../frontend-app/dist')))
+    // const __dirname1 = path.resolve();
+    // if(process.env.NODE_ENV === 'production'){
+    //     app.use(express.static(path.resolve(__dirname1,'../frontend-app/dist')))
 
-        app.get('*', (req,res) => {
-            res.sendFile(path.resolve(__dirname1, "../frontend-app/dist", "index.html"))
-        })
-    }
+    //     app.get('*', (req,res) => {
+    //         res.sendFile(path.resolve(__dirname1, "../frontend-app/dist", "index.html"))
+    //     })
+    // }
 
     // else{
     //     app.get("/", (req: Request, res: Response) => {
@@ -63,7 +63,8 @@ const server = app.listen(port, () => {
 
 const allowedOrigins = [
     "https://chatapp-mern-frontend-6a5q.onrender.com",
-    "https://chat-app-mern-lmye-3bypgw1sj-subash-chand-thakuris-projects.vercel.app/"
+    "https://chat-app-mern-lmye-3bypgw1sj-subash-chand-thakuris-projects.vercel.app/",
+    "https://chat-app-mern-lmye-bg623sxja-subash-chand-thakuris-projects.vercel.app/"
 ];
 
 const io = new Server(server, {
