@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: chatApp-mern-backend
+    env: node
+    buildCommand: npm run build:backend
+    startCommand: npm run start:backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        sync: false
+
+  - type: web
+    name: chatApp-mern-frontend
+    env: node
+    buildCommand: npm run build:frontend
+    startCommand: npm run start:frontend
+    envVars:
+      - key: NODE_ENV
+        value: production
