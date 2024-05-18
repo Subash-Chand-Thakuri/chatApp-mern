@@ -2,10 +2,10 @@
   "name": "backend-app",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "./dist/server.js",
   "type": "module",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "node ./dist/server.js",
     "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon dist/server.js"
@@ -31,7 +31,6 @@
     "@types/express": "^4.17.21",
     "@types/express-serve-static-core": "^4.19.0",
     "@types/jsonwebtoken": "^9.0.6",
-    "@types/mongoose": "^5.11.97",
     "@types/node": "^20.12.7",
     "nodemon": "^3.1.0",
     "typescript": "^5.4.5"
