@@ -61,10 +61,15 @@ const server = app.listen(port, () => {
   );
 });
 
+const allowedOrigins = [
+    "https://chatapp-mern-frontend-6a5q.onrender.com",
+    "https://chat-app-mern-lmye-3bypgw1sj-subash-chand-thakuris-projects.vercel.app/"
+];
+
 const io = new Server(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "https://chatapp-mern-frontend-6a5q.onrender.com",
+        origin: allowedOrigins,
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     }
 });
