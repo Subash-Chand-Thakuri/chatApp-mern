@@ -81,7 +81,9 @@ interface ChatBoxProps {
 
     
     useEffect(() => {
-        socket = io(ENDPOINT);
+        socket = io(ENDPOINT, {
+            transports: ['websocket', 'polling', 'flashsocket']
+        });
         socket.emit('setup', user);
         socket.on('connected', () => {
             setSocketConnected(true);
