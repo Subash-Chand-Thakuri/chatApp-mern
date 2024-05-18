@@ -12,6 +12,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function Login() {
   const [show, setShow] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -41,7 +43,7 @@ function Login() {
           },
         };
 
-        const {data} = await axios.post("/api/user/login", {email,password}, config);
+        const {data} = await axios.post(`${API_URL}/api/user/login`, {email,password}, config);
           console.log("It's a data:",data)
         toast({
           title: 'Login successful',

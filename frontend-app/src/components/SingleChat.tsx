@@ -13,7 +13,9 @@ import io, { Socket } from "socket.io-client"
 import Lottie from 'react-lottie'
 import animationData from "../assets/animations/typing.json"
 
-const ENDPOINT = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL;
+
+const ENDPOINT = `${API_URL}`;
 let socket: Socket, selectedChatCompare;
 
 interface ChatBoxProps {

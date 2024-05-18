@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import dotenv from 'dotenv';
+
+
+dotenv.config();
 
 export default defineConfig({
   plugins: [
@@ -11,7 +15,7 @@ export default defineConfig({
     port: 3500,
     proxy: {
       '/api':{ 
-      target: 'https://chatapp-mern-for-backend.onrender.com',
+      target: process.env.VITE_API_URL,
       changeOrigin: true,
       secure: false
     }

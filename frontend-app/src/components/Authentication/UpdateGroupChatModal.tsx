@@ -6,6 +6,8 @@ import axios from 'axios';
 import UserListItem from '../UserAvatar/UserListItem';
 import { useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface UpdateGroupChatModalProps {
     fetchAgain: boolean;
     setFetchAgain: React.Dispatch<React.SetStateAction<boolean>>;
@@ -51,7 +53,7 @@ interface UpdateGroupChatModalProps {
                 },
             };
 
-            const {data} = await axios.put(`/api/chat/groupremove`,{
+            const {data} = await axios.put(`${API_URL}/api/chat/groupremove`,{
                 chatId: selectedChat?._id,
                 userId: user1._id,
             },
@@ -88,7 +90,7 @@ interface UpdateGroupChatModalProps {
                 },
             };
 
-            const {data} = await axios.put(`/api/chat/grouprename`,{
+            const {data} = await axios.put(`${API_URL}/api/chat/grouprename`,{
                 chatId: selectedChat!._id,
                 chatName: groupChatName,
             },
@@ -127,7 +129,7 @@ interface UpdateGroupChatModalProps {
                 },
             };
 
-            const {data} = await axios.get(`/api/user/?search=${search}`,config);
+            const {data} = await axios.get(`${API_URL}/api/user/?search=${search}`,config);
             // console.log(data);
             setSearchResult(data.users);
             setLoading(false);
@@ -178,7 +180,7 @@ interface UpdateGroupChatModalProps {
                 },
             };
 
-            const {data} = await axios.put(`/api/chat/groupadd`,{
+            const {data} = await axios.put(`${API_URL}/api/chat/groupadd`,{
                 chatId: selectedChat?._id,
                 userId: user1._id,
             },

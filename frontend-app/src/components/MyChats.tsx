@@ -7,6 +7,8 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../config/ChatLogics";
 import GroupChatModal from "./Authentication/miscellaneous/GroupChatModal";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 interface MyChatsProps {
   fetchAgain: boolean; 
 }
@@ -25,7 +27,7 @@ function MyChats({ fetchAgain }: MyChatsProps)  {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(`${API_URL}/api/chat`, config);
       // console.log(data);
       setChats(data);
     } catch (error) {

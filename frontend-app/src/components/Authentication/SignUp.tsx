@@ -3,6 +3,8 @@ import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function SignUp() {
 
   const [show,setShow] = React.useState<boolean>(false);
@@ -98,7 +100,7 @@ function SignUp() {
           },
         };
 
-        const {data} = await axios.post("/api/user", {name,email,password,pic}, config);
+        const {data} = await axios.post(`${API_URL}/api/user`, {name,email,password,pic}, config);
 
         toast({
           title: 'Registeration successful',

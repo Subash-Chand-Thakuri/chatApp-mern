@@ -22,6 +22,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
