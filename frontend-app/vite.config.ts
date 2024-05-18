@@ -10,7 +10,11 @@ export default defineConfig({
   server: {
     port: 3500,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api':{ 
+      target: 'https://chatapp-mern-for-backend.onrender.com',
+      changeOrigin: true,
+      secure: false
+    }
     }
   },
   build: {

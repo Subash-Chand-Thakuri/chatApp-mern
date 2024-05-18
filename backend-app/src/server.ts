@@ -24,9 +24,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("API is running successfully!");
-});
+// app.get("/", (req: Request, res: Response) => {
+//   res.send("API is running successfully!");
+// });
 
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
@@ -43,11 +43,11 @@ app.use("/api/message", messageRoutes);
         })
     }
 
-    else{
-        app.get("/", (req: Request, res: Response) => {
-            res.send("API is Running Successfully");
-        })
-    }
+    // else{
+    //     app.get("/", (req: Request, res: Response) => {
+    //         res.send("API is Running Successfully");
+    //     })
+    // }
 
 // ----------------Deployment--------------------
 
@@ -64,7 +64,8 @@ const server = app.listen(port, () => {
 const io = new Server(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "http://localhost:3500"
+        origin: "https://chatapp-mern-frontend-6a5q.onrender.com",
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     }
 });
 
