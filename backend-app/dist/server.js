@@ -16,9 +16,9 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.get("/", (req, res) => {
-    res.send("API is running successfully!");
-});
+// app.get("/", (req: Request, res: Response) => {
+//   res.send("API is running successfully!");
+// });
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
@@ -30,11 +30,11 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname1, "../frontend-app/dist", "index.html"));
     });
 }
-else {
-    app.get("/", (req, res) => {
-        res.send("API is Running Successfully");
-    });
-}
+// else{
+//     app.get("/", (req: Request, res: Response) => {
+//         res.send("API is Running Successfully");
+//     })
+// }
 // ----------------Deployment--------------------
 app.use(notFound);
 app.use(errorHandler);

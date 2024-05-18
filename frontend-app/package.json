@@ -30,9 +30,9 @@
     "react-router-dom": "^6.23.0",
     "react-scrollable-feed": "^2.0.1",
     "socket.io-client": "^4.7.5",
+    "typescript": "^5.2.2",
     "vite": "^5.2.11",
-    "vite-tsconfig-paths": "^4.3.2",
-    "typescript": "^5.2.2"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
