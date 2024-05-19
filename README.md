@@ -1,5 +1,7 @@
 # ChatApp-Mern 
 
+![Project Banner](https://cdn.pixabay.com/animation/2022/11/16/11/48/11-48-15-802_512.gif)
+
 This is chat app based on the mern stack , I have used different technologies like typescript for backend and frontend , deploy it one vercel and render , implemented socket.io for realtime-communication and so on:
 
 ## Table of Contents
