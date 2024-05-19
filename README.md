@@ -101,12 +101,12 @@ yarn dev
 
 
 ## Usage
-Content for the usage section.
+We can use this application real time chatting with each othes.
+
+#### First sign-up to the page
 
 <p align="left">
-  <a href="https://twitter.com/actors_f" target="_blank">
-    <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="actors_f" height="30" width="40" />
-  </a>
+  <a target="_blank" rel="noreferrer"><img align="left" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
 </p>
 
 
