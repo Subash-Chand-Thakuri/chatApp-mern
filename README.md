@@ -104,7 +104,7 @@ yarn dev
 We can use this application real time chatting with each othes.
 
 
-<div align="center">
+<div align="">
 
   #### First sign-up to the page
   
