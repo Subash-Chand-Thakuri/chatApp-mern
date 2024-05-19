@@ -105,7 +105,8 @@ We can use this application real time chatting with each othes.
 
 #### First sign-up to the page
 
-<p align="left">
+<p>
+  <a target="_blank" rel="noreferrer"><img align="left" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
   <a target="_blank" rel="noreferrer"><img align="left" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
 </p>
 
