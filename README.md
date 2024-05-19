@@ -286,6 +286,11 @@ export default defineConfig({
   }
 }
 ```
+## Deployment Information:
+1. I have deployed  the backend and frontend app separately:
+  - backend at render.io
+  - frontend at vercel
+2. After deploying both backend and frontend , use api of deployed backend for communucation between frontend and backend by replacing the localhos url with deployed version of url
 
 
 
