@@ -13,15 +13,90 @@ This is chat app based on the mern stack , I have used different technologies li
 - [Setup Details](#setup-details)
   - [Backend Setup](#backend-setup)
   - [Frontend Setup](#frontend-setup)
-- [Contributing](#contributing)
-- [License](#license)
 
 
-## Introduction
-Content for the introduction section.
+
+## Project-Structure
+```plaintext
+/root-dir
+  ├── backend
+  │   ├── src
+  │   ├── dist
+  │   ├── package.json
+  │   └── tsconfig.json
+  ├── frontend
+  │   ├── src
+  │   ├── public
+  │   ├── package.json
+  │   └── tsconfig.json
+  |── README.md
+  └── ...
+```
 
 ## Installation
-Content for the installation section.
+
+
+### Prerequisites
+
+- Node.js
+- npm or yarn
+
+### Backend
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Build the project:
+
+```bash
+
+npm run build
+# or
+yarn build
+```
+
+4. Start the server:
+
+```bash
+npm start
+# or
+yarn start
+```
+### Frontend
+
+1. Navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+
+
 
 ## Usage
 Content for the usage section.
