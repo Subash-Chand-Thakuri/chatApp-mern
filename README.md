@@ -281,7 +281,7 @@ export default defineConfig({
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "serve": "vite preview"
   }
 }
