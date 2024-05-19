@@ -103,6 +103,13 @@ yarn dev
 ## Usage
 Content for the usage section.
 
+<p align="left">
+  <a href="https://twitter.com/actors_f" target="_blank">
+    <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="actors_f" height="30" width="40" />
+  </a>
+</p>
+
+
 ## Contributing
 Content for the contributing section.
 
