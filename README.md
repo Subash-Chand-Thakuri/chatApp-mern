@@ -13,3 +13,26 @@ This is chat app based on the mern stack , I have used different technologies li
 -Setup Details
   -Backend Setup
   -Frontend Setup
+
+## Table of Contents
+- Introduction
+- Installation
+- Usage
+- Contributing
+- License
+
+## Introduction
+Content for the introduction section.
+
+## Installation
+Content for the installation section.
+
+## Usage
+Content for the usage section.
+
+## Contributing
+Content for the contributing section.
+
+## License
+Content for the license section.
+
