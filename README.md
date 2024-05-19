@@ -3,23 +3,19 @@
 This is chat app based on the mern stack , I have used different technologies like typescript for backend and frontend , deploy it one vercel and render , implemented socket.io for realtime-communication and so on:
 
 ## Table of Contents
--Project Structure
--Installation
-  -Backend
-  -Frontend
--Usage
--Features
--Technologies Used
--Setup Details
-  -Backend Setup
-  -Frontend Setup
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+- [Usage](#usage)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Details](#setup-details)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Table of Contents
-- Introduction
-- Installation
-- Usage
-- Contributing
-- License
 
 ## Introduction
 Content for the introduction section.
