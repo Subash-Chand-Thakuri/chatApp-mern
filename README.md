@@ -257,7 +257,7 @@ npm install
 ```sh
 npm run dev
 ```
-- Build and Optimize for Production: When you’re ready to build your application for production, use:
+2. Build and Optimize for Production: When you’re ready to build your application for production, use:
 ```sh
 npm run build
 ```
@@ -275,7 +275,8 @@ export default defineConfig({
   }
 });
 ```
-- Ensure `package.json` for developement and production 
+### Developement & Production :
+- Ensure `package.json`:
 ```bash
 {
   "scripts": {
