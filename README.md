@@ -110,7 +110,7 @@ We can use this application real time chatting with each othes.
   <a target="_blank" rel="noreferrer"><img align="left" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
 </p>
 
-<br/>
+<br>
 
 
 ## Contributing
