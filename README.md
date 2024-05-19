@@ -107,6 +107,7 @@ We can use this application real time chatting with each othes.
 
 <div align="center">
   <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
+  <br>
   <a target="_blank" rel="noreferrer"><img align="right" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
 </div>
 
