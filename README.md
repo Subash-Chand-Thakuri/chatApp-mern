@@ -115,7 +115,7 @@ We can use this application real time chatting with each othes.
 
   #### Login to the page
   
-  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/login_dsz6at.png" alt="gptClone" width="450" height="330" />
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/login_dsz6at.png" alt="gptClone" width="400" height="330" />
   </a>
   
   <br>
@@ -155,14 +155,14 @@ We can use this application real time chatting with each othes.
 
   #### Leave or rename group
   
-  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/leaveGroup_jpdpkx.png" alt="gptClone" width="450" height="330" />
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/leaveGroup_jpdpkx.png" alt="gptClone" width="400" height="330" />
   </a>
   
   <br>
 
   #### View Profile
   
-  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/viewProfile_rbqrh1.png" alt="gptClone" width="450" height="330" />
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/viewProfile_rbqrh1.png" alt="gptClone" width="400" height="330" />
   </a>
 
   
@@ -173,9 +173,118 @@ We can use this application real time chatting with each othes.
 </strong>
 
 
-## Contributing
-Content for the contributing section.
+## Technologies Used
 
-## License
-Content for the license section.
+- Backend:
+    - Node.js
+    - Express.js
+    - Typescript
+
+- Frontend:
+    - React.js
+    - Vite
+    - Typescript
+    - Chakra-ui
+    - Material-ui
+    - Lottie-files
+
+## Setup Details
+
+### Backend Setup
+1. Typescript Setup:
+- Since Node.js directly does not accept Typescript so we have to compile it to javascript using tsconfig.ts in backend root directory
+
+2. Node.js Compiler
+- tsconfig.json 
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "NodeNext", 
+                                    /* Specify what module code is generated. */
+    "rootDir": "./src",                                    /* Specify the root folder within your source files. */
+    "moduleResolution": "NodeNext",                      /* Use Node's module resolution algorithm. */
+    "outDir": "./dist",                                    /* Specify an output folder for all emitted files. */
+    "esModuleInterop": true,                             /* Enables emit interoperability between CommonJS and ES Modules via the 'default' keyword. */
+    "forceConsistentCasingInFileNames": true,            /* Disallow inconsistently-cased references to the same file. */
+    // "skipLibCheck": true,                                /* Skip type checking of declaration files. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "resolveJsonModule": true , 
+    "skipLibCheck": true,                          /* Include modules for handling JSON files. */
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "noImplicitAny": false
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["src/**/*.ts", "env.d.ts",  "types/**/*"]
+}
+
+```
+- After this the compile javascript code is build and found inside the dist directory
+
+3. Scripts 
+- Add the scripts in `package.json` for building and running the server.
+
+```json
+"scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev":"nodemon dist/server.js"
+  }
+
+```
+
+- Use `npm run start` while production, `npm run dev` for developement
+- Run `npm run watch` before runnung `npm run dev` , it helps to detect changes at typescript and compile that changes continously
+
+### Frontend Setup
+1. Vite Setup:
+- Create a New Vite Project: Open your terminal and run the following command to create a new Vite project with React and TypeScript template:
+```sh 
+npm create vite@latest frontend-app -- --template react-ts
+```
+- Navigate to Your Project Directory: Change into your new project directory:
+```sh
+cd frontend-app
+```
+- Install Dependencies: Inside your project directory, install the necessary dependencies:
+```sh
+npm install
+```
+- Start the Development Server: Launch the development server:
+```sh
+npm run dev
+```
+- Build and Optimize for Production: When you’re ready to build your application for production, use:
+```sh
+npm run build
+```
+This command generates a dist folder with optimized assets ready for deployment.
+
+- Provide the vite.config.ts like this file .
+```bash
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000
+  }
+});
+```
+- Ensure `package.json` for developement and production 
+```bash
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  }
+}
+```
+
+
 
