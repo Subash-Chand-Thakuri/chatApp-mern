@@ -120,7 +120,7 @@ We can use this application real time chatting with each othes.
   
   <br>
 
-  #### Explore user interface
+  #### - Explore user interface
   
   <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/ui_pfbvph.png" alt="gptClone" width="450" height="330" />
   </a>
