@@ -103,13 +103,74 @@ yarn dev
 ## Usage
 We can use this application real time chatting with each othes.
 
-#### First sign-up to the page
 
 <div align="center">
-  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
+
+  #### First sign-up to the page
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="450" height="330" />
+  </a>
+  
   <br>
-  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/signup_qq3c26.png" alt="gptClone" width="300" height="330" /></a>
+
+  #### Login to the page
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093701/login_dsz6at.png" alt="gptClone" width="450" height="330" />
+  </a>
+  
+  <br>
+
+  #### Explore user interface
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/ui_pfbvph.png" alt="gptClone" width="450" height="330" />
+  </a>
+
+  
+  
+  <br>
+
+  #### Search other users to chat
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/searchUsers_rzxt81.png" alt="gptClone" width="450" height="330" />
+  </a>
+
+  
+  <br>
+
+  #### Do real-time messaging on both sides
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/socket-io_mbswie.png" alt="gptClone" width="600" height="330" />
+  </a>
+
+  
+  <br>
+
+  #### Create group for chatting
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/createGroup_fponv5.png" alt="gptClone" width="450" height="330" />
+  </a>
+
+  
+  <br>
+
+  #### Leave or rename group
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/leaveGroup_jpdpkx.png" alt="gptClone" width="450" height="330" />
+  </a>
+  
+  <br>
+
+  #### View Profile
+  
+  <a target="_blank" rel="noreferrer"><img align="center" src="https://res.cloudinary.com/diemdrcq6/image/upload/v1716093700/viewProfile_rbqrh1.png" alt="gptClone" width="450" height="330" />
+  </a>
+
+  
 </div>
+
+<strong>
+  *We can logout, get notifications and so on from this app*
+</strong>
 
 
 ## Contributing
